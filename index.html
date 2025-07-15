@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 <head>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TP8XXTYT3M"></script>
@@ -10,215 +10,288 @@
 
 	gtag('config', 'G-TP8XXTYT3M');
 	</script>
-
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Drinkle</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
-
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="images/drinkle.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="images/drinkle.ico" type="image/x-icon">
     <link rel="icon" href="images/drinkle.ico" type="image/x-icon">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drinkle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #222;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .cart-btn {
+      background-color: #f90;
+      color: #222;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .banner {
+      position: relative;
+      overflow: hidden;
+      height: 40vh;
+      max-height: 500px;
+    }
+    .slideshow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .slide {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .slide.active {
+      opacity: 1;
+    }
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+    }
+    .banner-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+    .product-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product-card h3 {
+      margin: 0.5rem 0;
+    }
+    .product-card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .product-card button {
+      background-color: #222;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .product-card button:hover {
+      background-color: #444;
+    }
+	.form-section {
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+    .form-wrapper {
+      width: 100%;
+      max-width: 1920px;
+      aspect-ratio: 640 / 554;
+    }
+    .form-wrapper iframe {
+      width: 100%;
+      height: 550px;
+      border: none;
+    }
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    footer p {
+      margin: 0.2rem 0;
+    }
+	@media screen and (max-width: 768px) {
+      nav {
+        justify-content: center;
+      }
+      .banner-text h2 {
+        font-size: 1.8rem;
+      }
+      .banner-text p {
+        font-size: 1rem;
+      }
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-    <!-- home
-    ================================================== -->
-    <main class="s-home s-home--slides">
-
-        <div class="home-slider">
-            <div class="home-slider-img" style="background-image: url(images/slides/slide-01.jpg);"></div>
-            <div class="home-slider-img" style="background-image: url(images/slides/slide-02.jpg);"></div>
-            <div class="home-slider-img" style="background-image: url(images/slides/slide-03.jpg);"></div>
-        </div>
-
-        <div class="overlay"></div>
-
-        <div class="home-content">
-
-            <div class="home-logo">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="Homepage">
-                </a>
-            </div>
-
-            <div class="row home-content__main">
-                <div class="col-four home-content__counter">
-                    <h3>Launching In</h3>
-
-                    <div class="home-content__clock">
-                        <div class="top">
-                        <div class="time hours">
-                            09
-                            <span>H</span>
-                        </div>
-                        <div class="time minutes">
-                            54
-                            <span>M</span>
-                        </div>
-                        <div class="time seconds">
-                            30
-                            <span>S</span>
-                        </div>
-                    </div>  <!-- end home-content__clock -->
-                </div>  <!-- end home-content__counter -->
-				<div>
-					<a href="index-slides.html">
-                    <img src="images/logo-whitewithname.png" alt="Homepage">
-                </a>
-				</div>
-
-            </div>  <!-- end home-content__main -->
-                <div class="col-eight home-content__text pull-right">
-                    <h3>Welcome to Drinkle</h3>
-
-                    <h1>
-                    We are currently working <br>
-                    on a new super awesome <br> website.
-                    </h1>
-
-                    <p>
-                    Drinkle makes hydration fun and easy with pre-measured, instant drink mix powders. No measuring, no mess—just drop, shake, and enjoy. Whether you're at home or on the go, our tasty blends turn plain water into something exciting. Stay refreshed, effortlessly.
-                    </p>
-
-                    <div class="home-content__subscribe">
-                        <form id="mc-form" class="group" novalidate="true">
-                            <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
-                            <input type="submit" name="subscribe" value="Notify Me">
-                            <label for="mc-email" class="subscribe-message"></label>
-                        </form>
-                    </div>
-                </div>  <!-- end home-content__text -->
-
-            <ul class="home-social">
-                <li>
-                <a href="#0" ><i class="fab fa-facebook-f" aria-hidden="true"></i><span>Facebook</span></a>
-                </li>
-                <li>
-                <a href="https://x.com/DrinkleShop" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i><span>Twiiter</span></a>
-                </li>
-                <li>
-                <a href="https://www.instagram.com/drinkle.shop" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
-                </li>
-                <li>
-                <a href="https://wa.me/917034317529" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>
-                </li>
-            </ul> <!-- end home-social -->
-
-            <div class="row home-copyright">
-                <span>&copy; Drinkel IIMU PSM Student Project 2025</span> 
-            </div> <!-- end home-copyright -->
-
-
-            <div class="home-content__line"></div>
-
-        </div> <!-- end home-content -->
-
-    </main> <!-- end s-home -->
-
-
-    <!-- info
-    ================================================== -->
-    <a class="info-toggle" href="#0">
-        <span class="info-menu-icon"></span>
-    </a>
-
-    <div class="s-info">
-
-        <div class="row info-wrapper">
-
-            <div class="col-seven tab-full info-main">
-                <h1>We are Drinkle. <br>Rip, Shake and Enjoy!!</h1>
-                <p>
-                Drinkle makes hydration fun and easy with pre-measured, instant drink mix powders. No measuring, no mess—just drop, shake, and enjoy. Whether you're at home or on the go, our tasty blends turn plain water into something exciting. Stay refreshed, effortlessly.
-                </p>
-
-                <p>
-                A Student Project by IIMU PSM 2025 Batch, Drinkle is your go-to solution for hydration. Our instant drink mix powders are designed to make staying hydrated a breeze. With no measuring and no mess, you can simply drop, shake, and enjoy a refreshing drink anytime, anywhere. Whether you're at home or on the go, our tasty blends turn plain water into something exciting. Stay refreshed effortlessly with Drinkle.
-                </p>
-            </div>
-
-            <div class="col-four tab-full pull-right info-contact">
-
-                <div class="info-block">
-                    <h3>Start A Conversation</h3>
-                    <p>
-                        <a href="mailto:shop.drinkle@gmail.com" class="info-email">shop.drinkle@gmail.com</a><br>
-                        <a href="tel:+917034317529" class="'info-phone">+91-7034317529</a>
-                    </p>
-                </div>
-
-                
-                <div class="info-block">
-                    <h3>Find Us On</h3>
-                    
-                    <ul class="info-social">
-                        <li>
-                            <a href="#0"><i class="fab fa-facebook" aria-hidden="true"></i>
-                            <span>Facebook</span></a>
-                        </li>
-                        <li>
-                            <a href="https://x.com/DrinkleShop" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i>
-                            <span>Twiiter</span></a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/drinkle.shop" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i>
-                            <span>Instagram</span></a>
-                        </li>
-                        <li>
-                            <a href="https://wa.me/917034317529" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i>
-                            <span>WhatsApp</span></a>
-                        </li>
-                    </ul>
-                </div>
-                
-            </div>  <!-- end info contact -->
-
-        </div>  <!-- end info wrapper -->
-
-    </div> <!-- end s-info -->
-
-
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader">
-            <div class="line-scale-pulse-out">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="Drinkle Logo">
     </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
 
-    <!-- Java Script
-    ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+  <section class="banner">
+    <div class="slideshow">
+      <img class="slide active" src="images/slides/slide-01.jpg" alt="Slide 1">
+      <img class="slide" src="images/slides/slide-02.jpg" alt="Slide 2">
+      <img class="slide" src="images/slides/slide-03.jpg" alt="Slide 3">
+    </div>
+    <div class="banner-text">
+      <h2>Hydration, Reimagined</h2>
+      <p>Discover the easiest way to enjoy delicious drink mixes on the go!</p>
+    </div>
+  </section>
 
+  <div class="container" id="products">
+    <div class="product-card">
+      <img src="images/Mango Madness New.png" alt="Product 1">
+      <h3>Mango Madness</h3>
+      <p>Sweet and refreshing tropical mango flavor.</p>
+      <button onclick="alert('Mango Madness added to cart!')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/Kala Khatta New.png" alt="Product 2">
+      <h3>Kala Khatta</h3>
+      <p>The original flavour filled with nostalgia.</p>
+      <button onclick="alert('Kala Khatta added to cart!')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/Choco Charge New.png" alt="Product 3">
+      <h3>Choco Charge</h3>
+      <p>Chocolaty goodness in every sip.</p>
+      <button onclick="alert('Choco Charge added to cart!')">Add to Cart</button>
+    </div>
+	<div class="product-card">
+      <img src="images/Mango Madness New.png" alt="Product 1">
+      <h3>Mango Madness</h3>
+      <p>Sweet and refreshing tropical mango flavor.</p>
+      <button onclick="alert('Mango Madness added to cart!')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/Kala Khatta New.png" alt="Product 2">
+      <h3>Kala Khatta</h3>
+      <p>The original flavour filled with nostalgia.</p>
+      <button onclick="alert('Kala Khatta added to cart!')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/Choco Charge New.png" alt="Product 3">
+      <h3>Choco Charge</h3>
+      <p>Chocolaty goodness in every sip.</p>
+      <button onclick="alert('Choco Charge added to cart!')">Add to Cart</button>
+    </div>
+	<div class="product-card">
+      <img src="images/Mango Madness New.png" alt="Product 1">
+      <h3>Mango Madness</h3>
+      <p>Sweet and refreshing tropical mango flavor.</p>
+      <button onclick="alert('Mango Madness added to cart!')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/Kala Khatta New.png" alt="Product 2">
+      <h3>Kala Khatta</h3>
+      <p>The original flavour filled with nostalgia.</p>
+      <button onclick="alert('Kala Khatta added to cart!')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/Choco Charge New.png" alt="Product 3">
+      <h3>Choco Charge</h3>
+      <p>Chocolaty goodness in every sip.</p>
+      <button onclick="alert('Choco Charge added to cart!')">Add to Cart</button>
+    </div>
+	<div class="product-card">
+      <img src="images/Mango Madness New.png" alt="Product 1">
+      <h3>Mango Madness</h3>
+      <p>Sweet and refreshing tropical mango flavor.</p>
+      <button onclick="alert('Mango Madness added to cart!')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/Kala Khatta New.png" alt="Product 2">
+      <h3>Kala Khatta</h3>
+      <p>The original flavour filled with nostalgia.</p>
+      <button onclick="alert('Kala Khatta added to cart!')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/Choco Charge New.png" alt="Product 3">
+      <h3>Choco Charge</h3>
+      <p>Chocolaty goodness in every sip.</p>
+      <button onclick="alert('Choco Charge added to cart!')">Add to Cart</button>
+    </div>
+  </div>
+  <div class="form-wrapper">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScAgRAo87rRMEdnH9mKH6pnz2Qs_PEdUgfRxzATD4_mqo3zxg/viewform?embedded=true" allowfullscreen>Loading…</iframe>
+    </div>
+  <footer>
+    <p>&copy; 2025 Drinkle. All rights reserved.</p>
+    <p>Follow us on
+      <a href="https://www.instagram.com/drinkle.shop" style="color: #f90; text-decoration: none;" target="_blank">Instagram</a> | 
+      <a href="https://x.com/DrinkleShop" style="color: #f90; text-decoration: none;" target="_blank">Twitter</a>
+    </p>
+  </footer>
+   <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    setInterval(() => {
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add('active');
+    }, 3000);
+  </script>
 </body>
-
 </html>
